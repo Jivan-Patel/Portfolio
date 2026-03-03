@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light Mode Colors */
+    --color-primary: 248 250 252;
+    /* Slate 50 */
+    --color-secondary: 226 232 240;
+    /* Slate 200 */
+    --color-text-main: 15 23 42;
+    /* Slate 900 */
+    --color-accent: 14 165 233;
+    /* Sky 500 */
+  }
+
+  .dark {
+    /* Dark Mode Colors */
+    --color-primary: 15 23 42;
+    /* Slate 900 */
+    --color-secondary: 30 41 59;
+    /* Slate 800 */
+    --color-text-main: 226 232 240;
+    /* Slate 200 */
+    --color-accent: 56 189 248;
+    /* Sky 400 */
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-primary text-main antialiased transition-colors duration-300;
+  }
+}
