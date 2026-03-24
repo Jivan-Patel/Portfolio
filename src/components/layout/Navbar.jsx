@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Link } from "react-scroll";
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FaBars, FaTimes, FaMoon, FaSun } from "react-icons/fa";
 import { useTheme } from "../../context/ThemeContext";

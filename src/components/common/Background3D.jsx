@@ -1,4 +1,4 @@
-import React, { useRef, useMemo, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
 import * as random from 'maath/random/dist/maath-random.esm';
@@ -8,7 +8,7 @@ import { animationConfig } from '../../utils/config';
 const Stars = ({ color, size, mouse }) => {
     const groupRef = useRef();
     const pointsRef = useRef();
-    const [sphere] = useState(() => random.inSphere(new Float32Array(animationConfig.background.starCount), { radius: animationConfig.background.radius }));
+    const [sphere] = useState(() => random.inSphere(new Float32Array(animationConfig.background.starCount * 3), { radius: animationConfig.background.radius }));
 
     useFrame((state, delta) => {
         // Automatic rotation (Points)

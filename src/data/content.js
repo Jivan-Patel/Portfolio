@@ -26,6 +26,15 @@ export const projectsData = [
     },
     {
         id: 3,
+        title: "Krishi Saathi",
+        description: "Krishi Saathi is a platform that helps farmers to get the best price for their crops. It is a platform that helps farmers to get the best price for their crops.",
+        tech: ["React", "GSAP", "Tailwind", "MongoDB", "Node.js", "Express.js"],
+        github: "https://github.com/Jivan-Patel/KrishiSaathi_v2.0",
+        demo: "https://krishi-saathi-elite-hack.vercel.app/",
+        image: "https://media.licdn.com/dms/image/v2/D5622AQHk45FTbLQAWw/feedshare-shrink_2048_1536/B56Zz3ON7lHoAg-/0/1773674225629?e=1775692800&v=beta&t=3yEJJF7l7PVic07B5fRdUkiC_42zpjws5KLMm4yi0ys",
+    },
+    {
+        id: 4,
         title: "Portfolio Website",
         description: "Modern dark-themed portfolio website with smooth animations.",
         tech: ["React", "GSAP", "Tailwind"],
@@ -38,19 +47,19 @@ export const projectsData = [
 export const skillsData = [
     {
         category: "Frontend Development",
-        skills: ["React.js", "JavaScript (ES6+)", "Tailwind CSS", "HTML5/CSS3", "GSAP Animations", "Three.js"],
+        skills: ["React.js", "JavaScript (ES6+)", "Tailwind CSS", "HTML5/CSS3", "GSAP Animations"],
     },
     {
         category: "Backend & Database",
-        skills: ["Node.js", "Express.js", "MongoDB", "RESTful APIs", "Firebase"],
+        skills: ["Node.js", "Express.js", "MongoDB", "RESTful APIs"],
     },
     {
         category: "Languages & Core",
-        skills: ["C", "C++", "Data Structures", "Algorithms"],
+        skills: ["C", "C++"],
     },
     {
         category: "Tools & Ecosystem",
-        skills: ["Git & GitHub", "Postman", "Vite", "NPM/Yarn"],
+        skills: ["Git & GitHub", "Postman", "Vite"],
     },
 ];
 

@@ -5,7 +5,6 @@ import { heroData } from "../../data/content";
 
 const Loader = ({ onFinished }) => {
     const containerRef = useRef(null);
-    const textRef = useRef(null);
     const [displayText, setDisplayText] = useState("");
     const name = heroData.loaderName || heroData.name;
 
