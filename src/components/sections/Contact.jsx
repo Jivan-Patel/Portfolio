@@ -1,17 +1,17 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import SectionWrapper from "../common/SectionWrapper";
 import { contactData } from "../../data/content";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FaEnvelope, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
-import emailjs from "@emailjs/browser";
+import { useForm, ValidationError } from "@formspree/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Contact = () => {
     const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-    const [status, setStatus] = useState("");
+    const [state, handleSubmit] = useForm("mjgandke");
     const formRef = useRef(null);
 
     useGSAP(() => {
@@ -32,28 +32,11 @@ const Contact = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setStatus("sending");
-
-        emailjs.sendForm(
-            import.meta.env.VITE_EMAILJS_SERVICE_ID,
-            import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-            formRef.current,
-            import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-        ).then(
-            () => {
-                setStatus("success");
-                setFormData({ name: "", email: "", message: "" });
-                setTimeout(() => setStatus(""), 5000);
-            },
-            (error) => {
-                console.error("EmailJS Error:", error);
-                setStatus("error");
-                setTimeout(() => setStatus(""), 5000);
-            }
-        );
-    };
+    useEffect(() => {
+        if (state.succeeded) {
+            setTimeout(() => setFormData({ name: "", email: "", message: "" }), 0);
+        }
+    }, [state.succeeded]);
 
     return (
         <SectionWrapper id="contact" className="bg-secondary/10">
@@ -94,6 +77,8 @@ const Contact = () => {
                 <form
                     ref={formRef}
                     onSubmit={handleSubmit}
+                    action="https://formspree.io/f/mjgandke"
+                    method="POST"
                     className="bg-secondary/30 p-8 rounded-2xl border border-slate-700 shadow-xl"
                 >
                     <div className="space-y-6">
@@ -109,6 +94,7 @@ const Contact = () => {
                                 className="w-full bg-primary border border-slate-600 rounded-lg px-4 py-3 text-main focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
                                 placeholder="Enter Your Name"
                             />
+                            <ValidationError prefix="Name" field="name" errors={state.errors} />
                         </div>
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Email</label>
@@ -122,6 +108,7 @@ const Contact = () => {
                                 className="w-full bg-primary border border-slate-600 rounded-lg px-4 py-3 text-main focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
                                 placeholder="Enter Your Email"
                             />
+                            <ValidationError prefix="Email" field="email" errors={state.errors} />
                         </div>
                         <div>
                             <label htmlFor="message" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Message</label>
@@ -135,17 +122,18 @@ const Contact = () => {
                                 className="w-full bg-primary border border-slate-600 rounded-lg px-4 py-3 text-main focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors resize-none"
                                 placeholder="Enter your message here..."
                             ></textarea>
+                            <ValidationError prefix="Message" field="message" errors={state.errors} />
                         </div>
 
                         <button
                             type="submit"
-                            disabled={status === "sending"}
-                            className={`w-full py-3 rounded-lg font-bold text-primary transition-all duration-300 ${status === "success"
+                            disabled={state.submitting}
+                            className={`w-full py-3 rounded-lg font-bold text-primary transition-all duration-300 ${state.succeeded
                                 ? "bg-green-500 hover:bg-green-600"
                                 : "bg-accent hover:bg-accent/90"
                                 }`}
                         >
-                            {status === "sending" ? "Sending..." : status === "success" ? "Message Sent!" : status === "error" ? "Error Occurred!" : "Send Message"}
+                            {state.submitting ? "Sending..." : state.succeeded ? "Message Sent!" : "Send Message"}
                         </button>
                     </div>
                 </form>
@@ -155,3 +143,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
