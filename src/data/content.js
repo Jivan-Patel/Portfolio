@@ -150,23 +150,3 @@ export const certificatesData = [
     },
 ];
 
-export const youtubeData = {
-    channelLink: "https://www.youtube.com/@PatelJivan-07",
-    videos: [
-        {
-            id: 1,
-            title: "Binance Clone Demo Using HTML & CSS",
-            videoId: "FlWxwQiyf-M",
-        },
-        {
-            id: 2,
-            title: "Paytm UI Clone Using Pure HTML & CSS (No JS)",
-            videoId: "Y1be2I_mGFw",
-        },
-        {
-            id: 3,
-            title: "Nothing Website Clone — Fully Responsive | HTML & CSS Only",
-            videoId: "Bp8MgNYvp20",
-        },
-    ],
-};

@@ -7,7 +7,7 @@ import Skills from './components/sections/Skills';
 import Projects from './components/sections/Projects';
 import Education from './components/sections/Education';
 import Certificates from './components/sections/Certificates';
-import YouTube from './components/sections/YouTube';
+import CodingStats from './components/sections/CodingStats';
 import Contact from './components/sections/Contact';
 import Footer from './components/layout/Footer';
 import Loader from './components/common/Loader';
@@ -34,7 +34,7 @@ function App() {
               <Projects />
               <Education />
               <Certificates />
-              <YouTube />
+              <CodingStats />
               <Contact />
             </main>
             <Footer />

@@ -37,9 +37,6 @@ const Footer = () => {
                 <p className="text-slate-500 text-sm">
                     Designed & Built by {heroData.name}
                 </p>
-                <p className="text-slate-600 text-xs flex items-center justify-center gap-1">
-                    Made with <FaHeart className="text-red-500" /> using React & Tailwind
-                </p>
             </div>
         </footer>
     );
