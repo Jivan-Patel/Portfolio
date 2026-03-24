@@ -1,27 +1,40 @@
-import React from 'react';
-/* eslint-disable-next-line no-unused-vars */
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
 import { FaGithub } from 'react-icons/fa';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const GitHubStats = () => {
+    const containerRef = useRef(null);
     const themeParams = "&theme=transparent&hide_border=true&title_color=38bdf8&text_color=94a3b8&icon_color=38bdf8&text_bold=false";
     const username = "Jivan-Patel";
 
+    useGSAP(() => {
+        gsap.fromTo(containerRef.current, 
+            { y: 40, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out', scrollTrigger: { trigger: containerRef.current, start: 'top 85%' } }
+        );
+        
+        gsap.fromTo(".github-card", 
+            { y: 20, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.6, stagger: 0.2, ease: 'power2.out', scrollTrigger: { trigger: containerRef.current, start: 'top 85%' } }
+        );
+    }, { scope: containerRef });
+
     return (
-        <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="bg-primary rounded-2xl p-6 md:p-8 border border-slate-700/50 hover:border-accent/40 shadow-xl"
+        <div 
+            ref={containerRef}
+            className="bg-primary rounded-2xl p-6 md:p-8 border border-slate-700/50 hover:border-accent/40 shadow-lg hover:shadow-2xl transition-all duration-300 relative"
         >
             <div className="flex items-center gap-3 mb-6">
                 <FaGithub className="text-3xl text-accent" />
                 <h3 className="text-2xl font-bold text-main">GitHub Stats</h3>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="w-full flex justify-center bg-secondary/20 rounded-xl p-4 border border-slate-700/30">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10 w-full">
+                <div className="github-card w-full flex justify-center bg-white/5 dark:bg-slate-800/50 rounded-2xl p-4 md:p-6 border border-slate-700 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
                     <img 
                         src={`https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true${themeParams}`} 
                         alt="GitHub Stats" 
@@ -29,7 +42,7 @@ const GitHubStats = () => {
                         className="max-w-full h-auto object-contain"
                     />
                 </div>
-                <div className="w-full flex justify-center bg-secondary/20 rounded-xl p-4 border border-slate-700/30">
+                <div className="github-card w-full flex justify-center bg-white/5 dark:bg-slate-800/50 rounded-2xl p-4 md:p-6 border border-slate-700 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
                     <img 
                         src={`https://github-readme-streak-stats.herokuapp.com/?user=${username}${themeParams}`} 
                         alt="GitHub Streak" 
@@ -39,17 +52,17 @@ const GitHubStats = () => {
                 </div>
             </div>
 
-            <div className="mt-8 flex justify-center">
+            <div className="mt-8 flex justify-center relative z-10">
                 <a 
                     href={`https://github.com/${username}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-6 py-2 rounded-full border border-accent/20 text-accent text-sm font-semibold hover:bg-accent hover:text-white transition-all duration-300"
+                    className="bg-accent text-white px-5 py-2 rounded-full text-sm font-semibold hover:shadow-lg hover:-translate-y-1 transition-all duration-300 block"
                 >
                     View GitHub Profile &rarr;
                 </a>
             </div>
-        </motion.div>
+        </div>
     );
 };
 
