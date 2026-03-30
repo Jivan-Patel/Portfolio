@@ -33,15 +33,7 @@ const GitHubStats = () => {
                 <h3 className="text-2xl font-bold text-main">GitHub Stats</h3>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10 w-full">
-                <div className="github-card w-full flex justify-center bg-white/5 dark:bg-slate-800/50 rounded-2xl p-4 md:p-6 border border-slate-700 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
-                    <img 
-                        src={`https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true${themeParams}`} 
-                        alt="GitHub Stats" 
-                        loading="lazy"
-                        className="max-w-full h-auto object-contain"
-                    />
-                </div>
+            <div className="flex flex-col gap-6 relative z-10 w-full">
                 <div className="github-card w-full flex justify-center bg-white/5 dark:bg-slate-800/50 rounded-2xl p-4 md:p-6 border border-slate-700 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
                     <img 
                         src={`https://github-readme-streak-stats.herokuapp.com/?user=${username}${themeParams}`} 
