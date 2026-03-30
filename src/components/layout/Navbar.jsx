@@ -14,10 +14,6 @@ const navLinks = [
     { name: "Projects", to: "projects" },
     { name: "Certificates", to: "certificates" },
     { name: "Coding Activity", to: "coding-activity" },
-<<<<<<< HEAD
-    { name: "Education", to: "education" },
-=======
->>>>>>> ddcfcac (Replacing Youtube section with Coding Activity/ stats)
     { name: "Contact", to: "contact" },
 ];
 
