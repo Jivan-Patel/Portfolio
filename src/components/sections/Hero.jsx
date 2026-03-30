@@ -5,6 +5,8 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from "react-scroll";
+import { FaLinkedinIn, FaGithub, FaYoutube, FaXTwitter, FaDownload } from "react-icons/fa6";
+import { SiLeetcode, SiSololearn } from "react-icons/si";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,6 +15,7 @@ const Hero = () => {
     const contentRef = useRef(null);
     const buttonsRef = useRef(null);
     const blobRef = useRef(null);
+    const socialsRef = useRef(null);
 
     useGSAP(() => {
         // Entrance animations
@@ -102,6 +105,48 @@ const Hero = () => {
                     >
                         Contact Me
                     </Link>
+                    <a
+                        href="https://drive.google.com/file/d/15oqTGJwdIWqwDIfnhjtxeyANAh1j3yvO/view?usp=drive_link"
+                        target="_blank"
+                        className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold px-10 py-4 rounded-full hover:from-cyan-400 hover:to-blue-400 transition-all shadow-[0_0_15px_rgba(6,182,212,0.4)] hover:shadow-[0_0_25px_rgba(6,182,212,0.8)] cursor-pointer text-center scale-100 hover:-translate-y-1 duration-300"
+                    >
+                        <FaDownload className="text-xl animate-bounce" />
+                        View Resume
+                    </a>
+                </div>
+
+                {/* Social Links */}
+                <div
+                    ref={socialsRef}
+                    className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mt-12 pb-10"
+                >
+                    {[
+                        { icon: FaLinkedinIn, url: "https://www.linkedin.com/in/patel-jivan", name: "LinkedIn", color: "hover:text-[#0a66c2]" },
+                        { icon: FaGithub, url: "https://github.com/Jivan-Patel", name: "GitHub", color: "hover:text-white" },
+                        { icon: SiLeetcode, url: "https://leetcode.com/u/patel_jivan/", name: "LeetCode", color: "hover:text-[#ffa116]" },
+                        { icon: FaYoutube, url: "https://www.youtube.com/@PatelJivan-07", name: "YouTube", color: "hover:text-[#ff0000]" },
+                        { icon: FaXTwitter, url: "https://x.com/JivanPatel76913", name: "X", color: "hover:text-white" },
+                        { icon: SiSololearn, url: "https://www.sololearn.com/en/profile/35598716", name: "SoloLearn", color: "text-[#1195aa]" },
+                    ].map((item, index) => {
+                        const Icon = item.icon;
+                        return (
+                            <a
+                                key={index}
+                                href={item.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`relative group p-3 sm:p-4 rounded-full bg-slate-800/50 text-slate-300 transition-all duration-300 hover:-translate-y-2 hover:bg-slate-800 hover:${item.color} shadow-lg hover:shadow-[0_0_15px_currentColor] border border-slate-700/50 hover:border-currentColor/50 flex items-center justify-center`}
+                            >
+                                <Icon className="text-xl sm:text-2xl" />
+                                {/* Tooltip */}
+                                <span className="absolute -top-12 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-xs font-semibold py-1.5 px-3 rounded shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none border border-slate-700">
+                                    {item.name}
+                                    {/* Tooltip Arrow */}
+                                    <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-slate-800 rotate-45 border-b border-r border-slate-700"></span>
+                                </span>
+                            </a>
+                        );
+                    })}
                 </div>
             </div>
         </section>
