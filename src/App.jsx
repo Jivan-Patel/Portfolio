@@ -32,9 +32,9 @@ function App() {
               <About />
               <Skills />
               <Projects />
-              <Education />
               <Certificates />
               <CodingStats />
+              <Education />
               <Contact />
             </main>
             <Footer />
