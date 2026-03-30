@@ -34,7 +34,6 @@ function App() {
               <Projects />
               <Certificates />
               <CodingStats />
-              <Education />
               <Contact />
             </main>
             <Footer />
