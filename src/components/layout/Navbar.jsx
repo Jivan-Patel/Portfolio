@@ -12,8 +12,10 @@ const navLinks = [
     { name: "About", to: "about" },
     { name: "Skills", to: "skills" },
     { name: "Projects", to: "projects" },
+    { name: "Hackathons", to: "hackathons" },
     { name: "Certificates", to: "certificates" },
     { name: "Coding Activity", to: "coding-activity" },
+    { name: "YouTube", to: "youtube" },
     { name: "Contact", to: "contact" },
 ];
 
@@ -44,7 +46,7 @@ const Navbar = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between h-16">
                         <div className="flex-shrink-0 cursor-pointer text-2xl font-bold text-accent">
-                            <Link to="hero" smooth={true} duration={500}>
+                            <Link to="hero" smooth={true} duration={500} onClick={() => window.dispatchEvent(new Event('closeModals'))}>
                                 Patel.Jivan
                             </Link>
                         </div>
@@ -58,6 +60,7 @@ const Navbar = () => {
                                         to={link.to}
                                         smooth={true}
                                         duration={500}
+                                        onClick={() => window.dispatchEvent(new Event('closeModals'))}
                                         className="cursor-pointer hover:text-accent px-3 py-2 rounded-md text-sm font-medium transition-colors"
                                     >
                                         {link.name}
@@ -117,7 +120,10 @@ const Navbar = () => {
                             to={link.to}
                             smooth={true}
                             duration={500}
-                            onClick={() => setIsOpen(false)}
+                            onClick={() => {
+                                setIsOpen(false);
+                                window.dispatchEvent(new Event('closeModals'));
+                            }}
                             className="block cursor-pointer text-slate-200 hover:text-accent hover:scale-110 transition-all duration-300 font-semibold tracking-wide"
                         >
                             {link.name}

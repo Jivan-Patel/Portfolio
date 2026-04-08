@@ -11,7 +11,7 @@ const Certificates = () => {
     const visibleCertificates = certificatesData.slice(0, visibleCount);
 
     return (
-        <SectionWrapper id="certificates">
+        <SectionWrapper id="certificates" className="bg-secondary/30">
             <h2 className="text-3xl md:text-4xl font-bold text-center text-main mb-16">
                 Professional <span className="text-accent">Certifications</span>
             </h2>

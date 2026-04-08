@@ -5,9 +5,11 @@ import Hero from './components/sections/Hero';
 import About from './components/sections/About';
 import Skills from './components/sections/Skills';
 import Projects from './components/sections/Projects';
+import Hackathons from './components/sections/Hackathons';
 import Education from './components/sections/Education';
 import Certificates from './components/sections/Certificates';
 import CodingStats from './components/sections/CodingStats';
+import YouTube from './components/sections/YouTube';
 import Contact from './components/sections/Contact';
 import Footer from './components/layout/Footer';
 import Loader from './components/common/Loader';
@@ -32,8 +34,10 @@ function App() {
               <About />
               <Skills />
               <Projects />
+              <Hackathons />
               <Certificates />
               <CodingStats />
+              <YouTube />
               <Contact />
             </main>
             <Footer />
