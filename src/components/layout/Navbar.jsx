@@ -24,6 +24,18 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const navRef = useRef(null);
 
+    // Ensure mobile menu closes when moving to large desktop widths.
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth >= 1280 && isOpen) {
+                setIsOpen(false);
+            }
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, [isOpen]);
+
     // Lock background scrolling when mobile menu is open
     useEffect(() => {
         if (isOpen) {
@@ -52,8 +64,8 @@ const Navbar = () => {
                         </div>
 
                         {/* Desktop Menu */}
-                        <div className="hidden md:block">
-                            <div className="ml-10 flex items-center space-x-8">
+                        <div className="hidden xl:block">
+                            <div className="ml-8 flex items-center space-x-2 2xl:space-x-4">
                                 {navLinks.map((link) => (
                                     <Link
                                         key={link.name}
@@ -61,7 +73,7 @@ const Navbar = () => {
                                         smooth={true}
                                         duration={500}
                                         onClick={() => window.dispatchEvent(new Event('closeModals'))}
-                                        className="cursor-pointer hover:text-accent px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                                        className="cursor-pointer hover:text-accent px-2 py-2 rounded-md text-sm 2xl:text-base font-medium transition-colors whitespace-nowrap"
                                     >
                                         {link.name}
                                     </Link>
@@ -77,7 +89,7 @@ const Navbar = () => {
                         </div>
 
                         {/* Mobile Toggles */}
-                        <div className="-mr-2 flex md:hidden gap-4">
+                        <div className="-mr-2 flex xl:hidden gap-3 sm:gap-4">
                             <button
                                 onClick={toggleTheme}
                                 className="p-2 rounded-full hover:bg-white/10 transition-colors"
@@ -98,7 +110,7 @@ const Navbar = () => {
 
             {/* Mobile Nav Overlay */}
             <div 
-                className={`fixed inset-0 z-50 w-full h-screen bg-[#0b1a2b]/95 backdrop-blur-md transition-transform duration-300 md:hidden flex flex-col ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
+                className={`fixed inset-0 z-50 w-full h-screen bg-[#0b1a2b]/95 backdrop-blur-md transition-transform duration-300 xl:hidden flex flex-col ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
             >
                 <div className="flex justify-between items-center p-6 w-full">
                     <div className="text-2xl font-bold text-accent">
@@ -113,7 +125,7 @@ const Navbar = () => {
                     </button>
                 </div>
                 
-                <div className="flex flex-1 flex-col items-center justify-center gap-8 px-6 text-2xl pb-20">
+                <div className="flex flex-1 flex-col items-center justify-start gap-5 px-6 pt-4 pb-10 text-xl sm:text-2xl overflow-y-auto">
                     {navLinks.map((link) => (
                         <Link
                             key={link.name}
