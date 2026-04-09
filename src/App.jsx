@@ -22,14 +22,14 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div className="bg-primary min-h-screen text-main font-sans selection:bg-accent selection:text-primary transition-colors duration-300 relative">
+        <div className="bg-primary min-h-screen text-main font-sans selection:bg-accent selection:text-onaccent transition-colors duration-300 relative overflow-x-hidden">
         {loading ? (
           <Loader onFinished={() => setLoading(false)} />
         ) : (
-          <>
+          <div className="relative z-10">
             <Background3D />
             <Navbar />
-            <main>
+            <main className="relative z-10">
               <Hero />
               <About />
               <Skills />
@@ -42,7 +42,7 @@ function App() {
             </main>
             <Footer />
             <BackToTop />
-          </>
+          </div>
         )}
       </div>
     </ThemeProvider>

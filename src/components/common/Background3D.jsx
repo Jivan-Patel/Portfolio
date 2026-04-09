@@ -47,9 +47,21 @@ const Background3D = () => {
     const mouse = useRef([0, 0]);
 
     // Theme-based styling for stars
-    const isDark = theme === 'dark';
-    const color = isDark ? '#ffffff' : '#475569'; // White for dark, Slate 600 for light (better visibility than Slate 900)
-    const starSize = isDark ? animationConfig.background.starSize : animationConfig.background.starSize * 2.5;
+    const isDarkBlue = theme === 'dark-blue';
+    const isBlack = theme === 'black';
+
+    let color = '#475569';
+    let starSize = animationConfig.background.starSize * 2.5;
+
+    if (isDarkBlue) {
+        color = '#ffffff';
+        starSize = animationConfig.background.starSize;
+    }
+
+    if (isBlack) {
+        color = '#e2e8f0';
+        starSize = animationConfig.background.starSize * 1.15;
+    }
 
     React.useEffect(() => {
         const handleMouseMove = (event) => {

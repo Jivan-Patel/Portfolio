@@ -37,7 +37,7 @@ const BackToTop = () => {
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     onClick={scrollToTop}
-                    className="fixed bottom-8 right-8 z-50 p-4 rounded-full bg-accent/20 backdrop-blur-md border border-accent/30 text-accent shadow-lg shadow-accent/20 transition-colors hover:bg-accent hover:text-primary group"
+                    className="fixed bottom-8 right-8 z-50 p-4 rounded-full bg-accent/20 backdrop-blur-md border border-accent/30 text-accent shadow-lg shadow-accent/20 transition-colors hover:bg-accent hover:text-onaccent group"
                     aria-label="Back to top"
                 >
                     <HiArrowUp className="text-2xl group-hover:-translate-y-1 transition-transform" />

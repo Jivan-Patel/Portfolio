@@ -43,7 +43,7 @@ const Certificates = () => {
                             exit={{ y: 50, opacity: 0 }}
                             transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
                             viewport={{ once: true, amount: 0.1 }}
-                            className="cert-card group bg-secondary/50 p-6 rounded-2xl border border-slate-700/50 hover:border-accent/40 transition-all duration-300 hover:shadow-[0_0_20px_rgba(var(--accent-rgb),0.1)] hover:-translate-y-1 flex flex-col items-center text-center relative overflow-hidden h-full"
+                            className="cert-card group relative z-10 bg-secondary/50 p-6 rounded-2xl border border-main/15 hover:border-accent/40 transition-all duration-300 hover:shadow-[0_0_20px_rgba(var(--accent-rgb),0.1)] hover:-translate-y-1 flex flex-col items-center text-center overflow-hidden h-full"
                         >
                             {/* Decorative background element */}
                             <div className="absolute -top-10 -right-10 w-24 h-24 bg-accent/5 rounded-full group-hover:bg-accent/10 transition-colors" />
@@ -56,18 +56,18 @@ const Certificates = () => {
                                 {cert.title}
                             </h3>
 
-                            <p className="text-accent text-sm font-medium mb-1">
+                            <p className="text-accent text-sm font-semibold mb-1">
                                 {cert.issuer}
                             </p>
 
-                            <p className="text-slate-400 text-xs mb-6 flex-grow">
+                            <p className="text-main/60 text-xs mb-6 flex-grow">
                                 Issued: {cert.date}
                             </p>
 
                             <button
                                 type="button"
                                 onClick={() => setSelectedCertificate(cert)}
-                                className="mt-auto px-6 py-2 rounded-full border border-accent/20 text-accent text-sm font-semibold hover:bg-accent hover:text-white transition-all duration-300"
+                                className="mt-auto px-6 py-2 rounded-full border border-accent/20 bg-accent/10 text-accent text-sm font-semibold hover:bg-accent hover:text-onaccent transition-all duration-300"
                             >
                                 View Certificate
                             </button>
@@ -81,7 +81,7 @@ const Certificates = () => {
                 {hasMore ? (
                     <button
                         onClick={handleLoadMore}
-                        className="px-8 py-3 rounded-full border-2 border-accent text-accent font-bold hover:bg-accent hover:text-primary transition-all duration-300 shadow-[0_0_15px_rgba(var(--accent-rgb),0.2)] hover:shadow-[0_0_25px_rgba(var(--accent-rgb),0.4)] hover:-translate-y-1"
+                        className="px-8 py-3 rounded-full border-2 border-accent text-accent font-bold hover:bg-accent hover:text-onaccent transition-all duration-300 shadow-[0_0_15px_rgba(var(--accent-rgb),0.2)] hover:shadow-[0_0_25px_rgba(var(--accent-rgb),0.4)] hover:-translate-y-1"
                     >
                         Load More Certificates
                     </button>
@@ -100,17 +100,17 @@ const Certificates = () => {
             >
                 {selectedCertificate && (
                     <div className="space-y-4">
-                        <div className="flex flex-wrap items-center gap-3 text-sm text-slate-300">
+                        <div className="flex flex-wrap items-center gap-3 text-sm text-main/75">
                             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent/30 bg-accent/10 text-accent font-semibold">
                                 <HiOutlineBadgeCheck className="text-base" />
                                 {selectedCertificate.issuer}
                             </span>
-                            <span className="text-slate-400">Issued: {selectedCertificate.date}</span>
+                            <span className="text-main/60">Issued: {selectedCertificate.date}</span>
                         </div>
 
-                        <div className="rounded-xl border border-slate-700/60 bg-black/30 overflow-hidden">
+                        <div className="rounded-xl border border-main/15 bg-black/20 overflow-hidden">
                             {selectedType === "image" && (
-                                <div className="flex items-center justify-center bg-[#0b1a2b] min-h-[45vh] sm:min-h-[60vh]">
+                                <div className="flex items-center justify-center bg-primary min-h-[45vh] sm:min-h-[60vh]">
                                     <img
                                         src={selectedCertificate.link}
                                         alt={selectedCertificate.title}
@@ -137,7 +137,7 @@ const Certificates = () => {
                         </div>
 
                         <div className="flex items-center justify-start gap-4 flex-wrap">
-                            <p className="text-xs sm:text-sm text-slate-400">
+                            <p className="text-xs sm:text-sm text-main/55">
                                 Press ESC or click outside to close.
                             </p>
                         </div>

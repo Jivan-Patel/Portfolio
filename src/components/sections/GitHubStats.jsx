@@ -26,7 +26,7 @@ const GitHubStats = () => {
     return (
         <div 
             ref={containerRef}
-            className="bg-primary rounded-2xl p-6 md:p-8 border border-slate-700/50 hover:border-accent/40 shadow-lg hover:shadow-2xl transition-all duration-300 relative"
+            className="bg-primary rounded-2xl p-6 md:p-8 border border-main/15 hover:border-accent/40 shadow-lg hover:shadow-2xl transition-all duration-300 relative"
         >
             <div className="flex items-center gap-3 mb-6">
                 <FaGithub className="text-3xl text-accent" />
@@ -34,7 +34,7 @@ const GitHubStats = () => {
             </div>
             
             <div className="flex flex-col gap-6 relative z-10 w-full">
-                <div className="github-card w-full flex justify-center bg-white/5 dark:bg-slate-800/50 rounded-2xl p-4 md:p-6 border border-slate-700 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                <div className="github-card w-full flex justify-center bg-secondary/50 rounded-2xl p-4 md:p-6 border border-main/15 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
                     <img 
                         src={`https://github-readme-streak-stats.herokuapp.com/?user=${username}${themeParams}`} 
                         alt="GitHub Streak" 
@@ -49,7 +49,7 @@ const GitHubStats = () => {
                     href={`https://github.com/${username}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-accent text-white px-5 py-2 rounded-full text-sm font-semibold hover:shadow-lg hover:-translate-y-1 transition-all duration-300 block"
+                    className="bg-accent text-onaccent px-5 py-2 rounded-full text-sm font-semibold hover:shadow-lg hover:-translate-y-1 transition-all duration-300 block"
                 >
                     View GitHub Profile &rarr;
                 </a>

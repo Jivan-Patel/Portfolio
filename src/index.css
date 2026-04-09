@@ -4,27 +4,43 @@
 
 @layer base {
   :root {
-    /* Light Mode Colors */
+    /* Light mode tokens */
     --color-primary: 248 250 252;
-    /* Slate 50 */
     --color-secondary: 226 232 240;
-    /* Slate 200 */
     --color-text-main: 15 23 42;
-    /* Slate 900 */
     --color-accent: 14 165 233;
-    /* Sky 500 */
+    --color-on-accent: 2 6 23;
   }
 
-  .dark {
-    /* Dark Mode Colors */
+  .theme-light {
+    --color-primary: 248 250 252;
+    --color-secondary: 226 232 240;
+    --color-text-main: 15 23 42;
+    --color-accent: 14 165 233;
+    --color-on-accent: 2 6 23;
+  }
+
+  .theme-dark-blue {
+    /* Existing dark-blue palette */
     --color-primary: 15 23 42;
-    /* Slate 900 */
     --color-secondary: 30 41 59;
-    /* Slate 800 */
     --color-text-main: 226 232 240;
-    /* Slate 200 */
     --color-accent: 56 189 248;
-    /* Sky 400 */
+    --color-on-accent: 2 6 23;
+  }
+
+  .theme-black {
+    /* New black palette */
+    --color-primary: 3 7 18;
+    --color-secondary: 15 23 42;
+    --color-text-main: 241 245 249;
+    --color-accent: 6 182 212;
+    --color-on-accent: 2 6 23;
+  }
+
+  /* Keep Tailwind dark: variants active for both dark themes. */
+  .dark {
+    color-scheme: dark;
   }
 
   html {

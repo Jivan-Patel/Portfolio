@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-scroll";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { FaBars, FaTimes, FaMoon, FaSun } from "react-icons/fa";
+import { FaBars, FaTimes, FaMoon, FaSun, FaCircle, FaPalette } from "react-icons/fa";
 import { useTheme } from "../../context/ThemeContext";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -19,10 +19,34 @@ const navLinks = [
     { name: "Contact", to: "contact" },
 ];
 
+const getThemeLabel = (theme) => {
+    if (theme === "dark-blue") return "Dark Blue";
+    if (theme === "black") return "Black";
+    return "Light";
+};
+
+const getThemeIcon = (theme, className = "") => {
+    if (theme === "dark-blue") return <FaMoon className={className || "text-cyan-300"} />;
+    if (theme === "black") return <FaCircle className={className || "text-slate-100"} />;
+    return <FaSun className={className || "text-amber-500"} />;
+};
+
+const getThemeSwatchClass = (theme) => {
+    if (theme === "dark-blue") return "bg-gradient-to-br from-slate-700 to-blue-900";
+    if (theme === "black") return "bg-gradient-to-br from-black to-slate-950";
+    return "bg-gradient-to-br from-slate-100 to-sky-200";
+};
+
 const Navbar = () => {
-    const { theme, toggleTheme } = useTheme();
+    const { theme, setTheme, themes } = useTheme();
     const [isOpen, setIsOpen] = useState(false);
+    const [isThemePickerOpen, setIsThemePickerOpen] = useState(false);
     const navRef = useRef(null);
+
+    const handleThemeSelect = (nextTheme) => {
+        setTheme(nextTheme);
+        setIsThemePickerOpen(false);
+    };
 
     // Ensure mobile menu closes when moving to large desktop widths.
     useEffect(() => {
@@ -48,6 +72,18 @@ const Navbar = () => {
             document.body.style.overflow = "auto";
         };
     }, [isOpen]);
+
+    // Close the theme picker with Escape.
+    useEffect(() => {
+        const onKeyDown = (event) => {
+            if (event.key === "Escape") {
+                setIsThemePickerOpen(false);
+            }
+        };
+
+        window.addEventListener("keydown", onKeyDown);
+        return () => window.removeEventListener("keydown", onKeyDown);
+    }, []);
 
     return (
         <>
@@ -79,11 +115,15 @@ const Navbar = () => {
                                     </Link>
                                 ))}
                                 <button
-                                    onClick={toggleTheme}
-                                    className="p-2 rounded-full hover:bg-white/10 transition-colors flex items-center justify-center"
-                                    aria-label="Toggle Theme"
+                                    onClick={() => setIsThemePickerOpen(true)}
+                                    className="group inline-flex items-center gap-2 rounded-full border border-main/15 bg-secondary/60 px-3.5 py-2 text-sm font-medium text-main transition-all hover:border-accent/50 hover:bg-secondary"
+                                    aria-label={`Change theme (current: ${getThemeLabel(theme)})`}
+                                    title={`Theme: ${getThemeLabel(theme)}`}
                                 >
-                                    {theme === "dark" ? <FaSun className="text-yellow-400" /> : <FaMoon className="text-slate-300" />}
+                                    <span className={`h-2.5 w-2.5 rounded-full ring-2 ring-white/20 ${getThemeSwatchClass(theme)}`} />
+                                    <span className="hidden 2xl:inline">Theme</span>
+                                    {getThemeIcon(theme, "text-accent")}
+                                    <FaPalette className="text-main/60 group-hover:text-accent transition-colors" />
                                 </button>
                             </div>
                         </div>
@@ -91,10 +131,13 @@ const Navbar = () => {
                         {/* Mobile Toggles */}
                         <div className="-mr-2 flex xl:hidden gap-3 sm:gap-4">
                             <button
-                                onClick={toggleTheme}
-                                className="p-2 rounded-full hover:bg-white/10 transition-colors"
+                                onClick={() => setIsThemePickerOpen(true)}
+                                className="inline-flex items-center gap-2 rounded-full border border-main/15 bg-secondary/60 px-3 py-2 text-main transition-all hover:border-accent/50 hover:bg-secondary"
+                                aria-label={`Change theme (current: ${getThemeLabel(theme)})`}
+                                title={`Theme: ${getThemeLabel(theme)}`}
                             >
-                                {theme === "dark" ? <FaSun className="text-yellow-400" /> : <FaMoon className="text-slate-700 dark:text-slate-300" />}
+                                <span className={`h-2.5 w-2.5 rounded-full ring-2 ring-white/20 ${getThemeSwatchClass(theme)}`} />
+                                {getThemeIcon(theme, "text-accent")}
                             </button>
                             <button
                                 onClick={() => setIsOpen(true)}
@@ -143,6 +186,58 @@ const Navbar = () => {
                     ))}
                 </div>
             </div>
+
+            {isThemePickerOpen && (
+                <div
+                    className="fixed inset-0 z-[60] bg-main/25 backdrop-blur-sm flex items-start sm:items-center justify-center px-4 pt-24 sm:pt-0"
+                    onClick={() => setIsThemePickerOpen(false)}
+                    role="dialog"
+                    aria-modal="true"
+                    aria-label="Select Theme"
+                >
+                    <div
+                        className="w-full max-w-sm rounded-2xl border border-main/15 bg-primary/95 shadow-2xl p-5 text-main"
+                        onClick={(event) => event.stopPropagation()}
+                    >
+                        <div className="flex items-center justify-between mb-4">
+                            <h3 className="text-lg font-semibold">Choose Theme</h3>
+                            <button
+                                onClick={() => setIsThemePickerOpen(false)}
+                                className="p-2 rounded-full text-main/60 hover:text-main hover:bg-secondary transition-colors"
+                                aria-label="Close theme chooser"
+                            >
+                                <FaTimes size={16} />
+                            </button>
+                        </div>
+
+                        <div className="space-y-2">
+                            {themes.map((themeOption) => {
+                                const selected = themeOption === theme;
+
+                                return (
+                                    <button
+                                        key={themeOption}
+                                        onClick={() => handleThemeSelect(themeOption)}
+                                        className={`w-full flex items-center justify-between rounded-xl px-4 py-3 border transition-colors ${selected
+                                            ? "border-accent bg-accent/15"
+                                            : "border-main/15 bg-secondary/35 hover:bg-secondary hover:border-main/25"
+                                            }`}
+                                    >
+                                        <span className="flex items-center gap-3 font-medium">
+                                            <span className={`h-3 w-3 rounded-full ring-2 ring-white/20 ${getThemeSwatchClass(themeOption)}`} />
+                                            {getThemeIcon(themeOption, selected ? "text-accent" : "text-main/80")}
+                                            {getThemeLabel(themeOption)}
+                                        </span>
+                                        <span className={`text-xs font-semibold ${selected ? "text-accent" : "text-main/50"}`}>
+                                            {selected ? "Selected" : "Select"}
+                                        </span>
+                                    </button>
+                                );
+                            })}
+                        </div>
+                    </div>
+                </div>
+            )}
         </>
     );
 };

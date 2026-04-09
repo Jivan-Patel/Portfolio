@@ -26,14 +26,13 @@ const Projects = () => {
                             whileHover={{ y: -10 }}
                             transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
                             viewport={{ once: true, amount: 0.1 }}
-                            className="bg-primary rounded-xl overflow-hidden shadow-lg border border-slate-700 hover:border-accent/50 transition-colors group backdrop-blur-sm cursor-pointer flex flex-col h-full"
+                            className="bg-primary rounded-xl overflow-hidden shadow-lg border border-main/15 hover:border-accent/50 transition-colors group cursor-pointer flex flex-col h-full"
                         >
                             <div className="relative h-48 overflow-hidden shrink-0">
-                                <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors z-10" />
                                 <img
                                     src={project.image}
                                     alt={project.title}
-                                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                                    className="w-full h-full object-cover filter-none transform group-hover:scale-110 transition-transform duration-500"
                                 />
                             </div>
                             <div className="p-6 flex flex-col grow">
@@ -77,7 +76,7 @@ const Projects = () => {
                 {hasMore ? (
                     <button
                         onClick={handleLoadMore}
-                        className="px-8 py-3 rounded-full border-2 border-accent text-accent font-bold hover:bg-accent hover:text-primary transition-all duration-300 shadow-[0_0_15px_rgba(var(--accent-rgb),0.2)] hover:shadow-[0_0_25px_rgba(var(--accent-rgb),0.4)] hover:-translate-y-1"
+                        className="px-8 py-3 rounded-full border-2 border-accent text-accent font-bold hover:bg-accent hover:text-onaccent transition-all duration-300 shadow-[0_0_15px_rgba(var(--accent-rgb),0.2)] hover:shadow-[0_0_25px_rgba(var(--accent-rgb),0.4)] hover:-translate-y-1"
                     >
                         Load More Projects
                     </button>
