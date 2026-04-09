@@ -3,6 +3,7 @@ export const heroData = {
     loaderName: "Patel Jivan",
     role: "Software Engineer",
     subheading: "Crafting modern, high-performance web experiences with clean code and creative design.",
+    resumeLink: "https://www.dropbox.com/scl/fi/l81fd629bm0y0l8rnoey4/Patel-Jivan-Resume.pdf?rlkey=nhitb3mnl2gq0ycphbilcd8b3&st=vxi6l07a&dl=0",
 };
 
 export const projectsData = [
@@ -13,9 +14,9 @@ export const projectsData = [
         tech: ["React", "GSAP", "Tailwind", "MongoDB", "Node.js", "Express.js"],
         github: "https://github.com/Jivan-Patel/KrishiSaathi_v2.0",
         demo: "https://krishi-saathi-elite-hack.vercel.app/",
-        image: "https://media.licdn.com/dms/image/v2/D5622AQHk45FTbLQAWw/feedshare-shrink_2048_1536/B56Zz3ON7lHoAg-/0/1773674225629?e=1775692800&v=beta&t=3yEJJF7l7PVic07B5fRdUkiC_42zpjws5KLMm4yi0ys",
+        image: "https://res.cloudinary.com/dkohpqbdj/image/upload/q_auto/f_auto/v1775723263/download_fexccg.png",
     },
-    
+
     {
         id: 2,
         title: "Skillswap",
@@ -176,3 +177,85 @@ export const certificatesData = [
     },
 ];
 
+export const youtubeData = {
+    channelLink: "https://www.youtube.com/@PatelJivan-07",
+    videos: [
+        {
+            id: 1,
+            title: "Full Stack MERN Project Demo: SkillSwap App (React, Node.js)",
+            videoId: "OCD35fF72mY",
+        },
+        {
+            id: 2,
+            title: "Paytm UI Clone Using Pure HTML & CSS (No JS)",
+            videoId: "Y1be2I_mGFw",
+        },
+        {
+            id: 3,
+            title: "Nothing Website Clone — Fully Responsive | HTML & CSS Only",
+            videoId: "Bp8MgNYvp20",
+        },
+    ],
+};
+
+export const hackathonData = [
+    {
+        id: 1,
+        title: "Craftathon Hackathon",
+        date: "Mar 2026",
+        location: "Gandhinagar University",
+        hackathonDescription: "This 36-Hour Hardcore Survival Challenge Unites The Ultimate Crafters From Across The Network.",
+        team: ["Patel Jivan", "Ammar", "Prathvik Mehera", "Parv Suhagiya"],
+        keyLearnings: "This project improved my problem-solving, teamwork, and ability to build practical systems.",
+        projectTitle: "Time Cure",
+        projectDescription: "TimeCure is a next-generation healthcare productivity platform that combines Machine Learning with Real-Time Event Streams to eliminate hospital waiting times and optimize doctor utilization.",
+        tech: ["React", "Node.js", "Express", "MongoDB", "Python", "Framer Motion"],
+        github: "https://github.com/Jivan-Patel/CortexCrew_TimeCure/",
+        demo: "https://cortex-crew-time-cure.vercel.app/",
+        projectScreenshot: "https://media.licdn.com/dms/image/v2/D4D22AQFy3nD_IJssYA/feedshare-shrink_800/B4DZ1hbvGnG4Ac-/0/1775456154356?e=1777507200&v=beta&t=Q6KjML65dfluiGEw-iQltou4c-KTwInOWHj-rcRYabc",
+        eventPhotos: [
+            "https://res.cloudinary.com/dkohpqbdj/image/upload/q_auto/f_auto/v1775636721/WhatsApp_Image_2026-04-04_at_1.55.34_PM6_mvkuia.jpg",
+            "https://res.cloudinary.com/dkohpqbdj/image/upload/q_auto/f_auto/v1775636799/WhatsApp_Image_2026-04-04_at_1.55.31_P_lkh1mn.jpg",
+            "https://media.licdn.com/dms/image/v2/D5622AQGPttqflgQCdQ/feedshare-shrink_800/B56Z1i7WVYKsAc-/0/1775481218637?e=1777507200&v=beta&t=uUtbeM-vDAMePACp8tMcBR8Wq_GqGhWttB-B9twdfk0",
+            "https://res.cloudinary.com/dkohpqbdj/image/upload/q_auto/f_auto/v1775578275/download_tjxfiw.png"
+        ]
+    },
+    {
+        id: 2,
+        title: "Elite Hack 1.0 Hackathon",
+        date: "Mar 2026",
+        location: "Online",
+        certificate: "https://d8it4huxumps7.cloudfront.net/lambda-pdfs/certificate-images/926ad5c3-44f3-4bec-9dc0-dc24298ecf0d.jpg",
+        hackathonDescription: "A 48-hour coding marathon focused on solving real-world challenges through innovative technologies.",
+        team: ["Patel Jivan", "Mayank", "Prathvik Mehera", "Parv Suhagiya"],
+        keyLearnings: "Gained significant experience in building scalable web applications under strict deadlines.",
+        projectTitle: "Krishi Saathi",
+        projectDescription: "A platform bridging the gap for farmers to acquire the best market prices for their crops.",
+        tech: ["React", "Node.js", "Express", "MongoDB", "GSAP"],
+        github: "https://github.com/Jivan-Patel/KrishiSaathi_v2.0",
+        demo: "https://krishi-saathi-elite-hack.vercel.app/",
+        projectScreenshot: "https://res.cloudinary.com/dkohpqbdj/image/upload/q_auto/f_auto/v1775723263/download_fexccg.png",
+        eventPhotos: []
+    },
+    {
+        id: 3,
+        title: "InnovAItion - Shaping Future Innovators",
+        date: "Jan 2026",
+        location: "DA-IICT, Gandhinagar",
+        certificate: "https://media.licdn.com/dms/image/v2/D5622AQGe8N_cBFd5JA/feedshare-shrink_480/B56ZzD92jZJMAo-/0/1772814297632?e=1776902400&v=beta&t=oyN-blnZjYkaB2-DNoxd4g5hmSSqJzVYwh5NHPezmXY",
+        hackathonDescription: "A 48-hour coding marathon focused on solving real-world challenges through innovative technologies.",
+        team: ["Patel Jivan", "Mayank", "Harsh Kavathiya", "Parv Suhagiya", "Priyabhat Sahoo"],
+        keyLearnings: "This hackathon was a great opportunity to work in a team and learn about building real-world applications.",
+        projectTitle: "Finance-Manager",
+        projectDescription: "A finance manager is a web application that helps users to manage their personal finances. It provides a platform for users to track their income and expenses, and to create budgets and financial goals.",
+        tech: ["HTML", "CSS", "JS", "GSAP"],
+        github: "https://github.com/Jivan-Patel/Finance-Manager",
+        demo: "https://finance-ai-codex.vercel.app/",
+        projectScreenshot: "https://media.licdn.com/dms/image/v2/D5622AQEPSGnhj44txw/feedshare-shrink_2048_1536/B56ZwZXqLKKsAk-/0/1769952158590?e=1776902400&v=beta&t=FQjLK_JIBWY2IyAVx3FxP4riCktGQ1reBy0MM6YEMoI",
+        eventPhotos: [
+            "https://media.licdn.com/dms/image/v2/D5622AQG2B2lMysofhQ/feedshare-shrink_800/B56ZwZXqQfHwAg-/0/1769952158965?e=1776902400&v=beta&t=L0L7RHUl2mpqqkLe6OfVUK4NmGpadpL18NaLFJ28juA",
+            "https://media.licdn.com/dms/image/v2/D5622AQFMYfKpQD2MPg/feedshare-shrink_1280/B56ZwZXqUQJoAc-/0/1769952159217?e=1776902400&v=beta&t=YKDV9lyeOWgQu2tcbgRwT9Fxv1L83lshjYQD-EEIHnI",
+            "https://media.licdn.com/dms/image/v2/D5622AQEtZR678GvFgg/feedshare-shrink_800/B56ZwZXqUMK4Ag-/0/1769952159242?e=1776902400&v=beta&t=hhse6seL4EbvsOV5Q72PZ_Q6Cn7oCwKYXDQxctakvEA",
+            "https://media.licdn.com/dms/image/v2/D5622AQESyYURtVLavA/feedshare-shrink_800/B56ZwZXqd3K0Ag-/0/1769952159933?e=1776902400&v=beta&t=De1rLT1QxV8BMOaUo59JmFW1BYxwjIQhr5elrRlKTpY"]
+    },    
+]

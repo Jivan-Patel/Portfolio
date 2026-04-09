@@ -106,7 +106,7 @@ const Hero = () => {
                         Contact Me
                     </Link>
                     <a
-                        href="https://drive.google.com/file/d/15oqTGJwdIWqwDIfnhjtxeyANAh1j3yvO/view?usp=drive_link"
+                        href={heroData.resumeLink}
                         target="_blank"
                         className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold px-10 py-4 rounded-full hover:from-cyan-400 hover:to-blue-400 transition-all shadow-[0_0_15px_rgba(6,182,212,0.4)] hover:shadow-[0_0_25px_rgba(6,182,212,0.8)] cursor-pointer text-center scale-100 hover:-translate-y-1 duration-300"
                     >
