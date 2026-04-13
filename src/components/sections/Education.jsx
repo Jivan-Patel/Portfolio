@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import SectionWrapper from "../common/SectionWrapper";
+import SectionHeading from "../common/SectionHeading";
 import { educationData } from "../../data/content";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -43,9 +44,7 @@ const Education = () => {
     return (
         <SectionWrapper id="education" className="bg-secondary/5 overflow-hidden">
             <div ref={containerRef} className="max-w-7xl mx-auto px-4">
-                <h2 className="text-3xl md:text-4xl font-bold text-center text-main mb-16">
-                    My Education <span className="text-accent">Path</span>
-                </h2>
+                <SectionHeading title="My Education" accent="Path" />
 
                 {/* Horizontal Pathway for Desktop */}
                 <div className="relative hidden md:block">

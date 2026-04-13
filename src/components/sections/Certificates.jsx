@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from "react";
 import SectionWrapper from "../common/SectionWrapper";
+import SectionHeading from "../common/SectionHeading";
 import { certificatesData } from "../../data/content";
 import { HiOutlineBadgeCheck } from "react-icons/hi";
 import { useLoadMore } from "../../hooks/useLoadMore";
@@ -30,9 +31,7 @@ const Certificates = () => {
 
     return (
         <SectionWrapper id="certificates" className="bg-secondary/30">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-main mb-16">
-                Professional <span className="text-accent">Certifications</span>
-            </h2>
+            <SectionHeading title="Professional" accent="Certifications" />
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                 <AnimatePresence mode="popLayout">
                     {visibleCertificates.map((cert) => (

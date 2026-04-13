@@ -24,6 +24,7 @@ export const projectsData = [
         tech: ["React", "GSAP", "Tailwind", "MongoDB", "Node.js", "Express.js"],
         github: "https://github.com/Jivan-Patel/SkillSwap",
         demo: "https://skillswap-five-green.vercel.app/",
+        youtube: "https://www.youtube.com/watch?v=OCD35fF72mY",
         image: "https://res.cloudinary.com/dkohpqbdj/image/upload/v1774862356/download_wbp2d3.png",
     },
     {
@@ -42,6 +43,7 @@ export const projectsData = [
         tech: ["HTML", "CSS"],
         github: "https://github.com/Jivan-Patel/nothing-clone",
         demo: "https://nothingclone-jivan.netlify.app/",
+        youtube: "https://www.youtube.com/watch?v=Bp8MgNYvp20",
         image: "https://res.cloudinary.com/dkohpqbdj/image/upload/v1770435372/Screenshot_2026-02-07_090535_ngffcj.png",
     },
     {
@@ -51,6 +53,7 @@ export const projectsData = [
         tech: ["HTML", "CSS"],
         github: "https://github.com/Jivan-Patel/ycombinator-clone",
         demo: "https://whimsical-meerkat-1fb95c.netlify.app/",
+        youtube: "https://youtu.be/WaMQpiyyOIM?si=lUUhcAxX_pH_kamL",
         image: "https://res.cloudinary.com/dkohpqbdj/image/upload/v1774865849/download_qichep.png",
     },
     {

@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import SectionWrapper from "../common/SectionWrapper";
+import SectionHeading from "../common/SectionHeading";
 import { contactData } from "../../data/content";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -40,9 +41,7 @@ const Contact = () => {
 
     return (
         <SectionWrapper id="contact" className="bg-secondary/10">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-main mb-16">
-                Get In <span className="text-accent">Touch</span>
-            </h2>
+            <SectionHeading title="Get In" accent="Touch" />
             <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
                 {/* Contact Info */}
                 <div className="space-y-8">
@@ -60,7 +59,7 @@ const Contact = () => {
                         </div>
                         <div className="flex items-center gap-4 text-slate-600 dark:text-slate-300">
                             <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-accent">
-                                <FaPhone />
+                                <FaPhone className="rotate-90"/>
                             </div>
                             <a href={`tel:${contactData.phone}`}>{contactData.phone}</a>
                         </div>

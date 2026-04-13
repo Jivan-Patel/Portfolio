@@ -1,5 +1,6 @@
 import React from "react";
 import SectionWrapper from "../common/SectionWrapper";
+import SectionHeading from "../common/SectionHeading";
 import { youtubeData } from "../../data/content";
 import { FaYoutube, FaExternalLinkAlt } from "react-icons/fa";
 
@@ -7,16 +8,14 @@ const YouTube = () => {
     return (
         <SectionWrapper id="youtube" className="bg-secondary/20">
             <div className="w-full">
-                {/* Header Section */}
-                <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-6">
-                    <div className="text-center md:text-left">
-                        <h2 className="text-3xl md:text-4xl font-bold text-main mb-2">
-                            YouTube <span className="text-red-500">Channel</span>
-                        </h2>
-                        <p className="text-slate-500 dark:text-slate-400 max-w-md">
-                            Sharing my coding journey, tutorials, and project showcases through video content.
-                        </p>
-                    </div>
+                <SectionHeading
+                    title="YouTube"
+                    accent="Channel"
+                    subtitle="Sharing my coding journey, tutorials, and project showcases through video content."
+                />
+
+                {/* Header CTA */}
+                <div className="flex justify-center mb-12">
                     <a
                         href={youtubeData.channelLink}
                         target="_blank"

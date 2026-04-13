@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import SectionWrapper from "../common/SectionWrapper";
+import SectionHeading from "../common/SectionHeading";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
@@ -24,11 +25,9 @@ const About = () => {
 
     return (
         <SectionWrapper id="about" className="bg-secondary/30">
+            <SectionHeading title="About" accent="Me" />
             <div className="grid md:grid-cols-2 gap-10 items-center">
                 <div className="space-y-6 text-section-content">
-                    <h2 className="text-3xl md:text-4xl font-bold text-main">
-                        About <span className="text-accent">Me</span>
-                    </h2>
                     <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
                         I am a passionate software engineer with a strong foundation in building scalable web applications.
                         My journey involves exploring various technologies and frameworks to create intuitive and dynamic user experiences.

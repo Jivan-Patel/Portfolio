@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import SectionHeading from "../common/SectionHeading";
 import SectionWrapper from "../common/SectionWrapper";
 import { skillsData } from "../../data/content";
 import gsap from "gsap";
@@ -89,7 +90,7 @@ const Skills = () => {
     }, { scope: containerRef });
 
     return (
-        <section id="skills" className="relative py-24 overflow-hidden min-h-screen flex flex-col justify-center">
+        <SectionWrapper id="skills" className="relative py-24 overflow-hidden min-h-screen flex flex-col justify-center">
             {/* Ambient Background Glows */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[150px] animate-pulse" />
@@ -97,12 +98,7 @@ const Skills = () => {
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={containerRef}>
-                <div className="text-center mb-20">
-                    <h2 className="text-5xl md:text-6xl font-black text-main mb-6 tracking-tight">
-                        Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-purple-400">Toolkit.</span>
-                    </h2>
-                    <div className="h-2 w-32 bg-gradient-to-r from-accent to-purple-400 mx-auto rounded-full shadow-[0_4px_20px_rgba(var(--color-accent),0.4)]" />
-                </div>
+                <SectionHeading title="Technical" accent="Toolkit" />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12 max-w-7xl mx-auto px-4">
                     {skillsData.map((category, idx) => (
@@ -147,7 +143,7 @@ const Skills = () => {
                     ))}
                 </div>
             </div>
-        </section>
+        </SectionWrapper>
     );
 };
 

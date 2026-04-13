@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import SectionWrapper from "../common/SectionWrapper";
+import SectionHeading from "../common/SectionHeading";
 import { hackathonData } from "../../data/content";
 import { FaGithub, FaExternalLinkAlt, FaMapMarkerAlt, FaCalendarAlt, FaTrophy, FaUsers, FaImages, FaTimes, FaCertificate } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
@@ -288,9 +289,7 @@ const Hackathons = () => {
 
     return (
         <SectionWrapper id="hackathons" className="relative">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-main mb-14">
-                Featured <span className="text-accent">Hackathons</span>
-            </h2>
+            <SectionHeading title="Featured" accent="Hackathons" className="mb-14" />
 
             <div className="max-w-7xl mx-auto flex flex-col">
                 {/* GRID VIEW */}

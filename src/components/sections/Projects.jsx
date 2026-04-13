@@ -1,7 +1,8 @@
 import React from "react";
 import SectionWrapper from "../common/SectionWrapper";
+import SectionHeading from "../common/SectionHeading";
 import { projectsData } from "../../data/content";
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt, FaYoutube } from "react-icons/fa";
 import { useLoadMore } from "../../hooks/useLoadMore";
 /* eslint-disable-next-line no-unused-vars */
 import { motion, AnimatePresence } from "framer-motion";
@@ -12,9 +13,7 @@ const Projects = () => {
 
     return (
         <SectionWrapper id="projects" className="bg-secondary/30">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-main mb-16">
-                Featured <span className="text-accent">Projects</span>
-            </h2>
+            <SectionHeading title="Featured" accent="Projects" />
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
                 <AnimatePresence mode="popLayout">
                     {visibleProjects.map((project) => (
@@ -47,20 +46,31 @@ const Projects = () => {
                                         </span>
                                     ))}
                                 </div>
-                                <div className="flex gap-4 mt-auto">
+                                <div className="flex flex-wrap gap-3 mt-auto">
                                     <a
                                         href={project.github}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-main transition-colors"
+                                        className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full border border-main/15 bg-secondary/40 text-sm font-medium text-slate-700 dark:text-slate-200 hover:border-accent/40 hover:text-main hover:bg-secondary transition-all duration-300"
                                     >
                                         <FaGithub size={18} /> Code
                                     </a>
+                                    {project.youtube && (
+                                        <a
+                                            href={project.youtube}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full border border-red-600/20 bg-red-600/10 text-sm font-medium text-red-600 hover:border-red-600/40 hover:bg-red-600 hover:text-white transition-all duration-300 shadow-sm shadow-red-600/10 hover:shadow-red-600/20"
+                                            aria-label={`Watch ${project.title} project video on YouTube`}
+                                        >
+                                            <FaYoutube size={18} /> Video
+                                        </a>
+                                    )}
                                     <a
                                         href={project.demo}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex items-center gap-2 text-sm font-medium text-accent hover:text-accent/80 transition-colors"
+                                        className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full border border-accent/25 bg-accent/10 text-sm font-medium text-accent hover:border-accent/50 hover:bg-accent hover:text-onaccent transition-all duration-300"
                                     >
                                         <FaExternalLinkAlt size={16} /> Live Demo
                                     </a>
