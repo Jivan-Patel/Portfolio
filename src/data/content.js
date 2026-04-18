@@ -40,6 +40,16 @@ export const projectsData = [
     },
     {
         id: 4,
+        title: "JavaScript Games Collection",
+        description: "A collection of JavaScript practice games and mini-projects built with HTML, CSS, and JavaScript, including Tic-Toe-Tic (3x3 and 6x6), Click Counter, Color Guessing Game, Whack-a-Mole, Typing Speed Test, Memory Flip Card, and To-Do Challenge.",
+        categories: ["games"],
+        tech: ["HTML", "CSS", "JavaScript"],
+        github: "https://github.com/Jivan-Patel/Games/",
+        demo: "https://games-jivan.vercel.app/",
+        image: "https://res.cloudinary.com/dkohpqbdj/image/upload/q_auto/f_auto/v1776530772/download_f2wcee.png",
+    },
+    {
+        id: 5,
         title: "FinanceAI",
         description: "Expence Manager that track your all expence and analyis your expence and give financial suggestions",
         categories: ["frontend"],
@@ -49,7 +59,7 @@ export const projectsData = [
         image: "https://res.cloudinary.com/dkohpqbdj/image/upload/v1770435062/Financial-Dashboard_aquhrk.png",
     },
     {
-        id: 5,
+        id: 6,
         title: "Nothing Website Clone",
         description: "This is an UI clone of Nothing Website. I try to clone exact ui of original website.",
         categories: ["ui-clone"],
@@ -60,7 +70,7 @@ export const projectsData = [
         image: "https://res.cloudinary.com/dkohpqbdj/image/upload/v1770435372/Screenshot_2026-02-07_090535_ngffcj.png",
     },
     {
-        id: 6,
+        id: 7,
         title: "Y Combinators Website Clone",
         description: "This is an UI clone of Y Combinators Website. I try to clone exact ui of original website.",
         categories: ["ui-clone"],
@@ -71,7 +81,7 @@ export const projectsData = [
         image: "https://res.cloudinary.com/dkohpqbdj/image/upload/v1774865849/download_qichep.png",
     },
     {
-        id: 7,
+        id: 8,
         title: "MovieExplorer",
         description: "MovieExplore leverages a fast, responsive interface to search for any movie in the extensive OMDB database.",
         categories: ["react"],
@@ -81,7 +91,7 @@ export const projectsData = [
         image: "https://res.cloudinary.com/dkohpqbdj/image/upload/v1774868935/download_f484vy.png",
     },
     {
-        id: 8,
+        id: 9,
         title: "Binance Website Clone",
         description: "A responsive Binance landing-page clone built using only HTML and CSS, focused on layout precision, clean typography, and modern UI styling.",
         categories: ["ui-clone"],
@@ -92,7 +102,7 @@ export const projectsData = [
         image: "https://res.cloudinary.com/dkohpqbdj/image/upload/q_auto/f_auto/v1776529089/download_gunphf.png",
     },
     {
-        id: 9,
+        id: 10,
         title: "Oppo Website Clone",
         description: "A pixel-focused Oppo website UI clone built with pure HTML and CSS only, with attention to spacing, component structure, and responsive behavior.",
         categories: ["ui-clone"],
@@ -103,7 +113,7 @@ export const projectsData = [
         image: "https://res.cloudinary.com/dkohpqbdj/image/upload/v1776529277/c61bbcb4-c959-4aa7-bbe2-ca9d84e9622e_mm9the.png",
     },
     {
-        id: 10,
+        id: 11,
         title: "Lenovo Website Clone",
         description: "A modern Lenovo-style interface recreation built entirely with HTML and CSS, emphasizing reusable sections, visual hierarchy, and responsive design.",
         categories: ["ui-clone"],
@@ -114,7 +124,7 @@ export const projectsData = [
         image: "https://res.cloudinary.com/dkohpqbdj/image/upload/v1776529242/download_oheibs.png",
     },
     {
-        id: 11,
+        id: 12,
         title: "Paytm UI Clone",
         description: "A Paytm interface clone created using only HTML and CSS, with a strong focus on responsive layout, utility sections, and clean visual consistency.",
         categories: ["ui-clone"],
@@ -123,9 +133,8 @@ export const projectsData = [
         youtube: "https://www.youtube.com/watch?v=Y1be2I_mGFw",
         image: "https://res.cloudinary.com/dkohpqbdj/image/upload/q_auto/f_auto/v1776529169/download_rpzowh.png",
     },
-    
     {
-        id: 12,
+        id: 13,
         title: "CodingGita App Design",
         description: "A complete Figma UI design for CodingGita with structured layouts, reusable components, and a modern visual hierarchy optimized for student-focused product experience.",
         categories: ["figma"],
@@ -134,7 +143,7 @@ export const projectsData = [
         image: "https://res.cloudinary.com/dkohpqbdj/image/upload/q_auto/f_auto/v1776529833/download_ch7l9q.png",
     },
     {
-        id: 13,
+        id: 14,
         title: "BookMyShow Design",
         description: "A BookMyShow-inspired Figma design exploring clean card layouts, intuitive browsing flow, and responsive screen planning for entertainment booking interfaces.",
         categories: ["figma"],
@@ -143,7 +152,7 @@ export const projectsData = [
         image: "https://res.cloudinary.com/dkohpqbdj/image/upload/v1776529964/bms_buykt2.png",
     },
     {
-        id: 14,
+        id: 15,
         title: "RedBus Design",
         description: "A RedBus-inspired Figma design focused on travel-oriented UI patterns, information clarity, and user-friendly booking flow with strong visual consistency.",
         categories: ["figma"],

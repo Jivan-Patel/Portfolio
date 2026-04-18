@@ -10,6 +10,7 @@ const PROJECT_FILTERS = [
     { label: "All Projects", value: "all" },
     { label: "Full-stack Project", value: "full-stack" },
     { label: "React Project", value: "react" },
+    { label: "Games Project", value: "games" },
     { label: "Figma Project", value: "figma" },
     { label: "UI Clone", value: "ui-clone" },
 ];
