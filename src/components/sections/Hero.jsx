@@ -1,11 +1,13 @@
-import React, { useRef } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import SectionWrapper from "../common/SectionWrapper";
+import Modal from "../common/Modal";
 import { heroData } from "../../data/content";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from "react-scroll";
 import { FaLinkedinIn, FaGithub, FaYoutube, FaXTwitter, FaDownload } from "react-icons/fa6";
+import { FaExternalLinkAlt } from "react-icons/fa";
 import { SiLeetcode, SiSololearn } from "react-icons/si";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -14,6 +16,28 @@ const Hero = () => {
     const heroRef = useRef(null);
     const contentRef = useRef(null);
     const linksBlockRef = useRef(null);
+    const [isResumeOpen, setIsResumeOpen] = useState(false);
+
+    const resumeDownloadLink = useMemo(() => {
+        if (!heroData.resumeLink) return "";
+        return heroData.resumeLink.includes("dl=0")
+            ? heroData.resumeLink.replace("dl=0", "dl=1")
+            : heroData.resumeLink;
+    }, []);
+
+    const resumePreviewLink = useMemo(() => {
+        const sourceUrl = heroData.resumeLink;
+        if (!sourceUrl) return "";
+
+        try {
+            const url = new URL(sourceUrl);
+            url.searchParams.delete("dl");
+            url.searchParams.set("raw", "1");
+            return url.toString();
+        } catch {
+            return sourceUrl;
+        }
+    }, []);
 
     useGSAP(() => {
         // Entrance animations
@@ -94,15 +118,14 @@ const Hero = () => {
                         >
                             Contact Me
                         </Link>
-                        <a
-                            href={heroData.resumeLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        <button
+                            type="button"
+                            onClick={() => setIsResumeOpen(true)}
                             className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold px-10 py-4 rounded-full hover:from-cyan-400 hover:to-blue-400 transition-all shadow-[0_0_15px_rgba(6,182,212,0.4)] hover:shadow-[0_0_25px_rgba(6,182,212,0.8)] cursor-pointer text-center scale-100 hover:-translate-y-1 duration-300"
                         >
                             <FaDownload className="text-xl animate-bounce" />
                             View Resume
-                        </a>
+                        </button>
                     </div>
 
                     {/* Social Links */}
@@ -137,6 +160,43 @@ const Hero = () => {
                     </div>
                 </div>
             </div>
+
+            <Modal
+                isOpen={isResumeOpen}
+                onClose={() => setIsResumeOpen(false)}
+                title="Resume"
+                maxWidthClass="max-w-6xl"
+            >
+                <div className="space-y-4">
+                    <div className="flex flex-wrap items-center gap-3">
+                        <a
+                            href={resumeDownloadLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-accent text-onaccent font-semibold hover:bg-accent/90 transition-colors"
+                        >
+                            <FaDownload /> Download Resume
+                        </a>
+                        <a
+                            href={heroData.resumeLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-main/20 text-main/80 font-semibold hover:text-main hover:border-main/40 hover:bg-secondary/50 transition-colors"
+                        >
+                            <FaExternalLinkAlt /> Open in New Tab
+                        </a>
+                    </div>
+
+                    <div className="h-[70vh] rounded-xl overflow-hidden border border-main/15 bg-secondary/20">
+                        <iframe
+                            src={resumePreviewLink}
+                            title="Patel Jivan Resume"
+                            className="w-full h-full"
+                            loading="lazy"
+                        />
+                    </div>
+                </div>
+            </Modal>
         </section>
     );
 };

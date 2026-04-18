@@ -289,7 +289,7 @@ const Hackathons = () => {
 
     return (
         <SectionWrapper id="hackathons" className="relative">
-            <SectionHeading title="Featured" accent="Hackathons" className="mb-14" />
+            <SectionHeading title="Hackathons" accent="& Achievements" className="mb-14" />
 
             <div className="max-w-7xl mx-auto flex flex-col">
                 {/* GRID VIEW */}
