@@ -93,9 +93,15 @@ const Navbar = () => {
             >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between h-16">
-                        <div className="flex-shrink-0 cursor-pointer text-2xl font-bold text-accent">
-                            <Link to="hero" smooth={true} duration={500} onClick={() => window.dispatchEvent(new Event('closeModals'))}>
-                                Patel.Jivan
+                        <div className="flex-shrink-0 cursor-pointer">
+                            <Link
+                                to="hero"
+                                smooth={true}
+                                duration={500}
+                                onClick={() => window.dispatchEvent(new Event('closeModals'))}
+                                className="flex items-center h-24 hover:opacity-80 transition-opacity"
+                            >
+                                <img src="/Logo.png" alt="Patel Jivan" className="h-24 w-auto object-contain sm:h-28 scale-150 origin-left" />
                             </Link>
                         </div>
 
@@ -156,8 +162,8 @@ const Navbar = () => {
                 className={`fixed inset-0 z-50 w-full h-screen bg-[#0b1a2b]/95 backdrop-blur-md transition-transform duration-300 xl:hidden flex flex-col ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
             >
                 <div className="flex justify-between items-center p-6 w-full">
-                    <div className="text-2xl font-bold text-accent">
-                        Patel.Jivan
+                    <div className="h-20 sm:h-24">
+                        <img src="/Logo.png" alt="Patel Jivan" className="h-full w-auto object-contain" />
                     </div>
                     <button
                         onClick={() => setIsOpen(false)}

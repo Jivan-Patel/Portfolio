@@ -7,6 +7,12 @@ const Footer = () => {
     return (
         <footer className="bg-primary pt-10 pb-8 border-t border-main/15 relative z-10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+                {/* Logo */}
+                <div className="flex justify-center mb-6">
+                    <img src="/Logo.png" alt="Patel Jivan" className="h-20 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity sm:h-24" />
+                </div>
+
+                {/* Social Links */}
                 <div className="flex justify-center gap-6">
                     <a
                         href={contactData.social.github}
